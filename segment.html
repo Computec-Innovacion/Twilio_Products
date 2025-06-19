@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva de Segment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-arrow {
+            color: #45B7D1;
+            font-size: 2rem;
+            line-height: 1;
+            align-self: center;
+            transform: rotate(90deg);
+        }
+        @media (min-width: 768px) {
+            .flow-arrow {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#F7FFF7] text-[#1A535C]">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center py-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#1A535C] mb-4">Entendiendo Segment</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-600">Una guía interactiva para unificar los datos de tus clientes, integrar fuentes y construir perfiles 360°.</p>
+        </header>
+
+        <main>
+            <section id="intro" class="mb-16">
+                <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold text-[#1A535C] mb-4">¿Qué es Segment?</h2>
+                            <p class="mb-4 text-gray-700">Segment es una Plataforma de Datos de Cliente (CDP) que actúa como un centro neurálgico. Su función es recolectar, limpiar y controlar los datos de tus clientes desde cualquier fuente (web, móvil, servidores) y enviarlos a cualquier herramienta que necesites para análisis, marketing o soporte.</p>
+                            <p class="text-gray-700">El objetivo principal es crear una "fuente única de verdad" para obtener una visión completa y unificada de cada cliente, eliminando los silos de datos.</p>
+                        </div>
+                        <div class="text-center bg-[#4ECDC4] text-white rounded-lg p-8">
+                            <div class="text-6xl font-bold">450+</div>
+                            <div class="text-xl mt-2">Integraciones de Destino</div>
+                            <p class="mt-2 text-sm">Conecta tus datos con herramientas como Google Analytics, Salesforce, Facebook Ads y más, sin escribir código personalizado para cada una.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="how-it-works" class="mb-16 text-center">
+                <h2 class="text-3xl font-bold text-[#1A535C] mb-4">El Flujo de Datos de Segment</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-12">Segment simplifica la complejidad de los datos en un pipeline de cuatro pasos claros, transformando datos brutos en acciones personalizadas.</p>
+                <div class="flex flex-col md:flex-row justify-around items-center gap-4">
+                    <div class="flex flex-col items-center text-center p-4">
+                        <div class="bg-[#45B7D1] text-white rounded-full w-24 h-24 flex items-center justify-center text-3xl font-bold mb-3">1</div>
+                        <h3 class="font-bold text-lg">Recopilación (Connections)</h3>
+                        <p class="text-sm text-gray-600 max-w-xs">Captura cada interacción del usuario desde tu sitio web, app móvil o servidor con una única API.</p>
+                    </div>
+                    <div class="flow-arrow">&#10142;</div>
+                    <div class="flex flex-col items-center text-center p-4">
+                        <div class="bg-[#FF6B6B] text-white rounded-full w-24 h-24 flex items-center justify-center text-3xl font-bold mb-3">2</div>
+                        <h3 class="font-bold text-lg">Unificación (Unify)</h3>
+                        <p class="text-sm text-gray-600 max-w-xs">Resuelve la identidad del cliente, fusionando puntos de contacto en un único perfil coherente (Grafo de Identidad).</p>
+                    </div>
+                    <div class="flow-arrow">&#10142;</div>
+                    <div class="flex flex-col items-center text-center p-4">
+                         <div class="bg-[#F7B801] text-white rounded-full w-24 h-24 flex items-center justify-center text-3xl font-bold mb-3">3</div>
+                        <h3 class="font-bold text-lg">Segmentación (Engage)</h3>
+                        <p class="text-sm text-gray-600 max-w-xs">Crea audiencias dinámicas basadas en comportamientos, eventos o atributos para una personalización precisa.</p>
+                    </div>
+                     <div class="flow-arrow">&#10142;</div>
+                    <div class="flex flex-col items-center text-center p-4">
+                        <div class="bg-[#4ECDC4] text-white rounded-full w-24 h-24 flex items-center justify-center text-3xl font-bold mb-3">4</div>
+                        <h3 class="font-bold text-lg">Activación (Destinations)</h3>
+                        <p class="text-sm text-gray-600 max-w-xs">Envía los datos y audiencias a tus herramientas de marketing, ventas o análisis para ejecutar campañas y acciones.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="data-sources" class="mb-16">
+                <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
+                    <h2 class="text-3xl font-bold text-center text-[#1A535C] mb-4">Integrando tu Universo de Datos</h2>
+                    <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12">Segment se conecta a una amplia variedad de fuentes de datos. La mayoría de las implementaciones se centran en los flujos de eventos en tiempo real, pero las capacidades se extienden a aplicaciones en la nube y almacenes de datos.</p>
+                    <div class="chart-container">
+                        <canvas id="dataSourcesChart"></canvas>
+                    </div>
+                     <p class="text-center text-sm text-gray-500 mt-4">Este gráfico muestra una distribución típica de los tipos de fuentes de datos utilizadas con Segment, destacando la importancia de los datos de comportamiento en tiempo real.</p>
+                </div>
+            </section>
+
+            <section id="languages" class="mb-16">
+                 <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
+                    <h2 class="text-3xl font-bold text-center text-[#1A535C] mb-4">Habla Cualquier Lenguaje de Programación</h2>
+                    <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12">No importa tu stack tecnológico, Segment ofrece SDKs y librerías para los lenguajes y plataformas más populares, tanto para el lado del cliente como del servidor.</p>
+                    <div class="chart-container">
+                        <canvas id="languagesChart"></canvas>
+                    </div>
+                     <p class="text-center text-sm text-gray-500 mt-4">El soporte para múltiples lenguajes asegura que puedas capturar datos de manera consistente en todo tu ecosistema digital, desde la web hasta las aplicaciones móviles y los backends.</p>
+                </div>
+            </section>
+            
+            <section id="api-calls" class="mb-16 text-center">
+                 <h2 class="text-3xl font-bold text-[#1A535C] mb-4">La Anatomía de un Perfil Unificado</h2>
+                 <p class="max-w-3xl mx-auto text-gray-600 mb-12">Tres llamadas a la API son la base para construir un perfil de cliente completo. Cada una cumple una función específica para registrar quién es el usuario y qué está haciendo.</p>
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                     <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-[#45B7D1]">`identify()`</h3>
+                        <p class="text-sm my-2"><strong>¿Quién es el usuario?</strong> Vincula a un usuario con sus acciones y registra sus características (nombre, email, etc.). Es la piedra angular del perfil.</p>
+                        <pre class="bg-gray-800 text-white text-left text-xs p-3 rounded-md overflow-x-auto"><code>analytics.identify("user_123", {
+  email: "jane.kim@example.com",
+  name: "Jane Kim"
+});</code></pre>
+                     </div>
+                     <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-[#FF6B6B]">`track()`</h3>
+                        <p class="text-sm my-2"><strong>¿Qué hace el usuario?</strong> Registra cualquier acción que realice un usuario, como "Producto Añadido" o "Video Visto".</p>
+                        <pre class="bg-gray-800 text-white text-left text-xs p-3 rounded-md overflow-x-auto"><code>analytics.track("Producto Añadido", {
+  productId: "prod_456",
+  price: 29.99
+});</code></pre>
+                     </div>
+                     <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-[#F7B801]">`page()`</h3>
+                        <p class="text-sm my-2"><strong>¿Dónde está el usuario?</strong> Registra las páginas que un usuario ve en tu sitio web. Fundamental para entender el journey de navegación.</p>
+                        <pre class="bg-gray-800 text-white text-left text-xs p-3 rounded-md overflow-x-auto"><code>analytics.page("Pricing", {
+  path: "/pricing"
+});</code></pre>
+                     </div>
+                 </div>
+            </section>
+
+            <section id="challenges" class="mb-16">
+                 <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
+                    <h2 class="text-3xl font-bold text-center text-[#1A535C] mb-4">Navegando los Desafíos de una CDP</h2>
+                    <p class="max-w-3xl mx-auto text-center text-gray-600 mb-12">Implementar una CDP como Segment es una inversión estratégica, pero no está exenta de desafíos. La preparación organizacional es a menudo el obstáculo más grande, incluso por encima de la tecnología.</p>
+                    <div class="chart-container">
+                        <canvas id="challengesChart"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4">Este gráfico visualiza los desafíos más comunes en la adopción de una CDP. Una implementación exitosa requiere un enfoque holístico que combine tecnología, estrategia y, sobre todo, la alineación de los equipos.</p>
+                 </div>
+            </section>
+        </main>
+
+        <footer class="text-center py-8 border-t border-gray-200">
+            <h3 class="text-2xl font-bold text-[#1A535C] mb-4">Maximizando tu Inversión en Segment</h3>
+            <p class="max-w-3xl mx-auto text-gray-600">El éxito con Segment no viene solo de la herramienta, sino de una estrategia clara. Prioriza la gobernanza de datos con <strong class="text-[#1A535C]">Protocols</strong>, define tus casos de uso, y fomenta la adopción en toda tu organización para transformar los datos de tus clientes en crecimiento medible.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label) => {
+            if (typeof label === 'string' && label.length > 16) {
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > 16) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                if (currentLine) {
+                    lines.push(currentLine.trim());
+                }
+                return lines;
+            }
+            return label;
+        };
+    
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+
+        const defaultChartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#1A535C',
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: '#1A535C',
+                    titleColor: '#FFFFFF',
+                    bodyColor: '#FFFFFF',
+                    padding: 10,
+                    cornerRadius: 4
+                }
+            }
+        };
+
+        const dataSourcesCtx = document.getElementById('dataSourcesChart').getContext('2d');
+        new Chart(dataSourcesCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Flujos de Eventos (Web, Móvil, Servidor)', 'Aplicaciones en la Nube (Salesforce, Stripe)', 'ETL Inverso (BigQuery, Snowflake)'],
+                datasets: [{
+                    label: 'Tipos de Fuentes de Datos',
+                    data: [65, 25, 10],
+                    backgroundColor: ['#45B7D1', '#FF6B6B', '#F7B801'],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        const languagesCtx = document.getElementById('languagesChart').getContext('2d');
+        new Chart(languagesCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapLabel('JavaScript (Analytics.js)'), 
+                    wrapLabel('Python (Servidor)'), 
+                    wrapLabel('iOS (Swift) & Android (Kotlin)'),
+                    wrapLabel('Java (Servidor)'), 
+                    wrapLabel('PHP (Servidor)'),
+                    wrapLabel('API HTTP (Universal)')
+                ],
+                datasets: [{
+                    label: 'Popularidad de Integración',
+                    data: [95, 85, 90, 75, 70, 98],
+                    backgroundColor: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#F7B801', '#FF8C42', '#1A535C'],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                indexAxis: 'y',
+                 plugins: {
+                    ...defaultChartOptions.plugins,
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: '#1A535C' },
+                        grid: { color: '#e0e0e0' }
+                    },
+                    y: {
+                        ticks: { color: '#1A535C' },
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+        
+        const challengesCtx = document.getElementById('challengesChart').getContext('2d');
+        new Chart(challengesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Desafíos Comunes de CDP'],
+                datasets: [
+                    {
+                        label: 'Preparación Organizacional',
+                        data: [25],
+                        backgroundColor: '#FF6B6B',
+                    },
+                    {
+                        label: 'Calidad y Gestión de Datos',
+                        data: [22],
+                        backgroundColor: '#F7B801',
+                    },
+                    {
+                        label: 'Integración con Sistemas Existentes',
+                        data: [18],
+                        backgroundColor: '#4ECDC4',
+                    },
+                    {
+                        label: 'Costo y Recursos (TCO)',
+                        data: [15],
+                        backgroundColor: '#45B7D1',
+                    },
+                    {
+                        label: 'Demostrar el ROI',
+                        data: [10],
+                        backgroundColor: '#1A535C',
+                    },
+                     {
+                        label: 'Otros',
+                        data: [10],
+                        backgroundColor: '#cccccc',
+                    }
+                ]
+            },
+            options: {
+                ...defaultChartOptions,
+                indexAxis: 'y',
+                scales: {
+                    x: { stacked: true, ticks: { callback: (value) => value + '%', color: '#1A535C'}, grid: {color: '#e0e0e0'} },
+                    y: { stacked: true, ticks: {display: false}, grid: {display: false} }
+                },
+                 plugins: {
+                    ...defaultChartOptions.plugins,
+                    tooltip: {
+                        ...defaultChartOptions.plugins.tooltip,
+                        callbacks: {
+                             title: (tooltipItems) => '',
+                             label: (context) => {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.x !== null) {
+                                    label += context.parsed.x + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
